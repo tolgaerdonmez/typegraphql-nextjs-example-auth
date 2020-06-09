@@ -19,6 +19,14 @@
 cd server
 ```
 
+# Set up mail account for nodemailer
+
+[How to configure nodemailer smtp](https://nodemailer.com/smtp/)
+
+Set the email credentials to ***example.nodemailer.config.json***
+
+Then rename it to ***nodemailer.config.json***
+
 ```sh
 # installing modules
 yarn install
