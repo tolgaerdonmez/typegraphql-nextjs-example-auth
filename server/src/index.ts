@@ -7,6 +7,9 @@ import connectRedis from "connect-redis";
 import cors from "cors";
 import { redis } from "./redis";
 import { createSchema } from "./utils/createSchema";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const main = async () => {
   await createConnection();
@@ -21,7 +24,7 @@ const main = async () => {
 
   const RedisStore = connectRedis(session);
 
-  app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+  app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 
   app.use(
     session({

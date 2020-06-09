@@ -5,6 +5,7 @@ import fetch from "isomorphic-unfetch";
 import { isBrowser } from "./isBrowser";
 import { onError } from "apollo-link-error";
 import Router from "next/router";
+import serverUrl from "./server.url.json";
 
 let apolloClient: ApolloClient<NormalizedCacheObject> | null = null;
 
@@ -19,7 +20,7 @@ interface Options {
 
 function create(initialState: any, { getToken }: Options) {
 	const httpLink = createHttpLink({
-		uri: "http://localhost:4000/graphql",
+		uri: serverUrl.url,
 		credentials: "include",
 	});
 

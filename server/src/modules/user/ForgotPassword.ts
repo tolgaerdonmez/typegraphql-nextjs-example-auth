@@ -21,7 +21,7 @@ export class ForgotPasswordResolver {
     await sendMail(
       "Forgot your password ? We got your back 👍",
       email,
-      "http://localhost:3000/user/password/change/" + token
+      process.env.CLIENT_URL + "/user/password/change/" + token
     );
 
     return true;
