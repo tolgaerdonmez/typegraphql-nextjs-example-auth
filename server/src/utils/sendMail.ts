@@ -1,4 +1,4 @@
-import nodemailer, { TestAccount } from "nodemailer";
+import nodemailer from "nodemailer";
 import emailConfig from "../../nodemailer.config.json";
 
 export async function sendMail(subject: string, emailTo: string, url: string) {
