@@ -1,5 +1,5 @@
 import React from "react";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import { GetServerSidePropsContext } from "next";
 import { ChangePasswordComponent } from "../../../../generated/apolloComponents";
 import Layout from "../../../../components/Layout";
 import { Formik, Field } from "formik";
