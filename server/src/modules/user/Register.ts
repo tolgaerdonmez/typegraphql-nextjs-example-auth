@@ -20,7 +20,11 @@ export class RegisterResolver {
       password: hashedPassword,
     }).save();
 
-    await sendMail(email, await createConfirmationUrl(user.id));
+    await sendMail(
+      "Confirm your new created user account",
+      email,
+      await createConfirmationUrl(user.id)
+    );
 
     return user;
   }

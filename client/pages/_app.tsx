@@ -28,8 +28,8 @@ export default withApollo(
 	({ initialState, ctx }) =>
 		initApollo(initialState, {
 			getToken: () => parseCookies(ctx?.req).qid,
-		}),
-	{
-		getDataFromTree,
-	}
+		})
+	// {
+	// 	getDataFromTree,
+	// }
 )(MyApp);

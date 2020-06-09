@@ -19,6 +19,7 @@ export class ForgotPasswordResolver {
     await redis.set(forgotPasswordPrefix + token, user.id, "ex", 60 * 60 * 24); // 1 Day expiration
 
     await sendMail(
+      "Forgot your password ? We got your back 👍",
       email,
       "http://localhost:3000/user/password/change/" + token
     );

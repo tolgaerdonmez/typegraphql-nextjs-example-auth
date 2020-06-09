@@ -5,16 +5,17 @@ import { Formik, Field } from "formik";
 import { InputField } from "../../../components/fields/InputField";
 
 const ForgotPasswordPage = () => {
-	const [emailSent, setEmailSent] = useState(false);
+	const [emailSent, setEmailSent] = useState(null as null | boolean);
 
 	return (
 		<Layout title="Forgot Password?">
 			<h1>Forgot Password</h1>
-			{!emailSent ? (
+			{emailSent === null ? (
 				<ForgotPasswordComponent>
 					{forgotPassword => (
 						<Formik
 							onSubmit={async ({ email }, { setErrors }) => {
+								setEmailSent(false);
 								const res = await forgotPassword({
 									variables: { email },
 								});
@@ -34,8 +35,10 @@ const ForgotPasswordPage = () => {
 						</Formik>
 					)}
 				</ForgotPasswordComponent>
+			) : emailSent ? (
+				<h1>Forgot password link sent to your email!</h1>
 			) : (
-				<h1>Change password link sent to your email!</h1>
+				<h1>Loading...</h1>
 			)}
 		</Layout>
 	);

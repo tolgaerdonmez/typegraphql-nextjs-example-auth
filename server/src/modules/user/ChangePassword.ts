@@ -30,8 +30,6 @@ export class ChangePasswordResolver {
     user.password = hashedPassword;
     user.save();
 
-    ctx.req.session!.userId = user.id;
-
     return user;
   }
 }
