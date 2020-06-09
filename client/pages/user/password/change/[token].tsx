@@ -61,7 +61,7 @@ const ChangePasswordPage = ({ token }: Props) => {
 	);
 };
 
-export async function getServerSideProps({ params }: GetServerSidePropsContext): GetServerSideProps {
+export async function getServerSideProps({ params }: GetServerSidePropsContext) {
 	return { props: { token: params?.token } };
 }
 
