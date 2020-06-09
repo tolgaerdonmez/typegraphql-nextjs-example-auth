@@ -1,0 +1,44 @@
+{
+  "name": "with-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "apollo-boost": "^0.4.9",
+    "apollo-link-context": "^1.0.20",
+    "apollo-link-http": "^1.5.17",
+    "cookie": "^0.4.1",
+    "formik": "^2.1.4",
+    "graphql": "^15.1.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "latest",
+    "next-with-apollo": "^5.0.1",
+    "react": "^16.12.0",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.12.0",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "1.15.1",
+    "@graphql-codegen/typescript": "1.15.1",
+    "@graphql-codegen/typescript-graphql-files-modules": "1.15.1",
+    "@graphql-codegen/typescript-operations": "1.15.1",
+    "@graphql-codegen/typescript-react-apollo": "1.15.1",
+    "@types/cookie": "^0.4.0",
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^12.12.21",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^5.1.0",
+    "graphql-codegen-typescript-client": "0.18.2",
+    "graphql-codegen-typescript-common": "0.18.2",
+    "graphql-codegen-typescript-react-apollo": "0.18.2",
+    "typescript": "3.7.3"
+  },
+  "license": "ISC"
+}

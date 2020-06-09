@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  redis:
+    image: redis
+    container_name: typegraphql-example-cache
+    ports:
+      - "6379:6379"
+
+  postgres:
+    image: postgres
+    container_name: typegraphql-example-database
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: typegraphql-example
+    ports: 
+      - "5432:5432"
