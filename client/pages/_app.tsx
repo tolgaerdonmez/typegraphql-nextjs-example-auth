@@ -1,6 +1,6 @@
 import App from "next/app";
 import React from "react";
-import { ApolloProvider, getDataFromTree } from "react-apollo";
+import { ApolloProvider } from "react-apollo";
 import { withApollo, WithApolloProps } from "next-with-apollo";
 import initApollo from "../lib/initApollo";
 import cookie from "cookie";
