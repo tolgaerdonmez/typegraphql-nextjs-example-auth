@@ -8,9 +8,13 @@ const LogoutPage = (): React.ReactElement => {
 };
 
 LogoutPage.getInitialProps = async ({ apolloClient, ...ctx }: DefaultContext) => {
-	await apolloClient.mutate({ mutation: logoutMutation });
-	await apolloClient.resetStore();
-	redirect(ctx, "/user/login");
+	try {
+		await apolloClient.mutate({ mutation: logoutMutation });
+		await apolloClient.resetStore();
+		redirect(ctx, "/user/login");
+	} catch {
+		redirect(ctx, "/user/logout");
+	}
 	return { props: {} };
 };
 

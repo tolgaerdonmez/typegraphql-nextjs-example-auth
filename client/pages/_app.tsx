@@ -5,6 +5,7 @@ import { withApollo, WithApolloProps } from "next-with-apollo";
 import initApollo from "../lib/initApollo";
 import cookie from "cookie";
 import UserContextProvider from "../context/User";
+import "../sass/global.scss";
 
 function parseCookies(req?: any, options = {}) {
 	return cookie.parse(req ? req.headers.cookie || "" : document.cookie, options);

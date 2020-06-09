@@ -7,7 +7,7 @@ import redirect from "../../../lib/redirect";
 
 export default function ConfirmPage(): ReactElement {
 	return (
-		<Layout>
+		<Layout title="Confirm Account">
 			<h1>Cannot confirm user account, invalid token </h1>
 		</Layout>
 	);

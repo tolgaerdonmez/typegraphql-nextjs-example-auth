@@ -8,7 +8,8 @@ const ForgotPasswordPage = () => {
 	const [emailSent, setEmailSent] = useState(false);
 
 	return (
-		<Layout>
+		<Layout title="Forgot Password?">
+			<h1>Forgot Password</h1>
 			{!emailSent ? (
 				<ForgotPasswordComponent>
 					{forgotPassword => (
@@ -26,8 +27,8 @@ const ForgotPasswordPage = () => {
 							initialValues={{ email: "" }}>
 							{({ handleSubmit }) => (
 								<form onSubmit={handleSubmit}>
-									<Field name="email" placeholder="email" component={InputField} />
-									<button type="submit">Send link to email</button>
+									<Field label="Email" name="email" placeholder="email" component={InputField} />
+									<button type="submit">Forgot Password</button>
 								</form>
 							)}
 						</Formik>

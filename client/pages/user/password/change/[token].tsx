@@ -17,7 +17,8 @@ const ChangePasswordPage = ({ token }: Props) => {
 	}
 
 	return (
-		<Layout>
+		<Layout title="Change Password">
+			<h1>Change Password</h1>
 			<ChangePasswordComponent>
 				{changePassword => (
 					<Formik

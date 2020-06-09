@@ -2,22 +2,17 @@ import React, { ReactNode, useContext } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import { UserContext } from "../context/User";
-import styled from "styled-components";
 
 type Props = {
 	children?: ReactNode;
 	title?: string;
 };
 
-const Container = styled.div`
-	background-color: #fafafa;
-`;
-
 const Layout = ({ children, title = "This is the default title" }: Props) => {
 	const userContext = useContext(UserContext);
 
 	return (
-		<Container>
+		<div className="layout-container">
 			<Head>
 				<title>{title}</title>
 				<meta charSet="utf-8" />
@@ -25,41 +20,48 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
 			</Head>
 			<header>
 				<nav>
-					{!userContext.state.loggedIn ? (
-						<>
-							{" | "}
-							<Link href="/user/register">
-								<a>Register</a>
-							</Link>
-							{" | "}
-							<Link href="/user/login">
-								<a>Login</a>
-							</Link>
-							{" | "}
-							<Link href="/user/password/forgot">
-								<a>Forgot Password</a>
-							</Link>
-						</>
-					) : (
-						<>
-							{" | "}
-							<Link href="/hello">
-								<a>Hello</a>
-							</Link>
-							{" | "}
-							<Link href="/user/logout">
-								<a>Logout</a>
-							</Link>
-						</>
-					)}
+					<ul>
+						{!userContext.state.loggedIn ? (
+							<>
+								<li>
+									<Link href="/user/register">
+										<a>Register</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/login">
+										<a>Login</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/password/forgot">
+										<a>Forgot Password</a>
+									</Link>
+								</li>
+							</>
+						) : (
+							<>
+								<li>
+									<Link href="/hello">
+										<a>Hello</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/user/logout">
+										<a>Logout</a>
+									</Link>
+								</li>
+							</>
+						)}
+					</ul>
 				</nav>
 			</header>
-			{children}
+			<div className="layout-children-container">{children}</div>
 			<footer>
 				<hr />
-				<span>I'm here to stay (Footer)</span>
+				<span>typegraphql-nextjs-example-auth</span>
 			</footer>
-		</Container>
+		</div>
 	);
 };
 

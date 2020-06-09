@@ -9,7 +9,8 @@ interface Props {}
 
 function RegisterPage({}: Props): ReactElement {
 	return (
-		<Layout>
+		<Layout title="Register">
+			<h1>Register</h1>
 			<RegisterComponent>
 				{register => (
 					<Formik
@@ -38,10 +39,26 @@ function RegisterPage({}: Props): ReactElement {
 						initialValues={{ email: "", firstName: "", lastName: "", password: "" }}>
 						{({ handleSubmit }) => (
 							<form onSubmit={handleSubmit}>
-								<Field name="firstName" placeholder="firstName" component={InputField} />
-								<Field name="lastName" placeholder="lastName" component={InputField} />
-								<Field name="email" placeholder="email" component={InputField} />
-								<Field name="password" placeholder="password" type="password" component={InputField} />
+								<Field
+									label="First Name"
+									name="firstName"
+									placeholder="firstName"
+									component={InputField}
+								/>
+								<Field
+									label="Last Name"
+									name="lastName"
+									placeholder="lastName"
+									component={InputField}
+								/>
+								<Field label="Email" name="email" placeholder="email" component={InputField} />
+								<Field
+									label="Password"
+									name="password"
+									placeholder="password"
+									type="password"
+									component={InputField}
+								/>
 								<button type="submit">Register</button>
 							</form>
 						)}

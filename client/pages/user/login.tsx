@@ -12,7 +12,8 @@ function LoginPage({}: Props): ReactElement {
 	const userContext = useContext(UserContext);
 
 	return (
-		<Layout>
+		<Layout title="Login">
+			<h1>Login</h1>
 			<LoginComponent>
 				{login => (
 					<Formik
@@ -30,8 +31,14 @@ function LoginPage({}: Props): ReactElement {
 						initialValues={{ email: "", password: "" }}>
 						{({ handleSubmit }) => (
 							<form onSubmit={handleSubmit}>
-								<Field name="email" placeholder="email" component={InputField} />
-								<Field name="password" placeholder="password" type="password" component={InputField} />
+								<Field label="Email" name="email" placeholder="email" component={InputField} />
+								<Field
+									label="Password"
+									name="password"
+									placeholder="password"
+									type="password"
+									component={InputField}
+								/>
 								<button type="submit">Login</button>
 							</form>
 						)}

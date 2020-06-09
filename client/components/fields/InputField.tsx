@@ -2,14 +2,21 @@ import React, { ReactElement, DetailedHTMLProps, InputHTMLAttributes } from "rea
 import { FieldProps } from "formik";
 
 type InputProps = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
-
-export function InputField({ field, form: { errors, touched }, ...props }: FieldProps & InputProps): ReactElement {
+interface CustomFieldProps extends InputProps {
+	label?: string;
+}
+export function InputField({
+	field,
+	form: { errors, touched },
+	...props
+}: FieldProps & CustomFieldProps): ReactElement {
 	const errorMessage = touched[field.name] && errors[field.name];
 
 	return (
-		<div>
+		<div className="form-input-field">
+			<label htmlFor={props.name || ""}>{props.label}</label>
 			<input {...field} {...props} />
-			{errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
+			{errorMessage && <span className="form-input-error-message">{errorMessage}</span>}
 		</div>
 	);
 }
