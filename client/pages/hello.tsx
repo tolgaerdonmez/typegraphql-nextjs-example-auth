@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
 import { MeComponent } from "../generated/apolloComponents";
 import Layout from "../components/Layout";
+import { withApolloAuth } from "../lib/withApollo";
 
 function HelloPage(): ReactElement {
 	return (
@@ -12,4 +13,4 @@ function HelloPage(): ReactElement {
 	);
 }
 
-export default HelloPage;
+export default withApolloAuth(HelloPage);

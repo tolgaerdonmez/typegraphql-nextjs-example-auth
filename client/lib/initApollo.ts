@@ -29,7 +29,7 @@ function create(initialState: any, { getToken }: Options) {
 			graphQLErrors.forEach(({ message }) => {
 				// console.log(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
 				if (message.includes("Not authenticated!") && isBrowser) {
-					Router.replace("/user/login");
+					// Router.replace("/user/login");
 				}
 			});
 		if (networkError) console.log(`[Network error]: ${networkError}`);

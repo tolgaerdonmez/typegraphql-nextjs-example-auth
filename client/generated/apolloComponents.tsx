@@ -16,7 +16,7 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  me: User;
+  me?: Maybe<User>;
   hello: Scalars['String'];
 };
 
@@ -159,10 +159,10 @@ export type MeQueryVariables = {};
 
 export type MeQuery = (
   { __typename?: 'Query' }
-  & { me: (
+  & { me?: Maybe<(
     { __typename?: 'User' }
     & Pick<User, 'id' | 'firstName' | 'lastName' | 'name' | 'email'>
-  ) }
+  )> }
 );
 
 

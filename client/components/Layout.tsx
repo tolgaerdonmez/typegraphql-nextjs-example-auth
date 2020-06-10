@@ -1,7 +1,7 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import Head from "next/head";
-import { UserContext } from "../context/User";
+import { MeComponent } from "../generated/apolloComponents";
 
 type Props = {
 	children?: ReactNode;
@@ -9,8 +9,6 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title" }: Props) => {
-	const userContext = useContext(UserContext);
-
 	return (
 		<div className="layout-container">
 			<Head>
@@ -21,38 +19,45 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
 			<header>
 				<nav>
 					<ul>
-						{!userContext.state.loggedIn ? (
-							<>
-								<li>
-									<Link href="/user/register">
-										<a>Register</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/login">
-										<a>Login</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/password/forgot">
-										<a>Forgot Password</a>
-									</Link>
-								</li>
-							</>
-						) : (
-							<>
-								<li>
-									<Link href="/hello">
-										<a>Hello</a>
-									</Link>
-								</li>
-								<li>
-									<Link href="/user/logout">
-										<a>Logout</a>
-									</Link>
-								</li>
-							</>
-						)}
+						<MeComponent>
+							{({ data, loading }) => {
+								if (!data || loading || !data.me) {
+									return (
+										<>
+											<li>
+												<Link href="/user/register">
+													<a>Register</a>
+												</Link>
+											</li>
+											<li>
+												<Link href="/user/login">
+													<a>Login</a>
+												</Link>
+											</li>
+											<li>
+												<Link href="/user/password/forgot">
+													<a>Forgot Password</a>
+												</Link>
+											</li>
+										</>
+									);
+								}
+								return (
+									<>
+										<li>
+											<Link href="/hello">
+												<a>Hello</a>
+											</Link>
+										</li>
+										<li>
+											<Link href="/user/logout">
+												<a>Logout</a>
+											</Link>
+										</li>
+									</>
+								);
+							}}
+						</MeComponent>
 					</ul>
 				</nav>
 			</header>

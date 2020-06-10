@@ -2,6 +2,7 @@ import React from "react";
 import { DefaultContext } from "../../interfaces";
 import { logoutMutation } from "../../graphql/user/mutations/logoutMutation";
 import redirect from "../../lib/redirect";
+import { withApollo } from "../../lib/withApollo";
 
 const LogoutPage = (): React.ReactElement => {
 	return <></>;
@@ -10,12 +11,13 @@ const LogoutPage = (): React.ReactElement => {
 LogoutPage.getInitialProps = async ({ apolloClient, ...ctx }: DefaultContext) => {
 	try {
 		await apolloClient.mutate({ mutation: logoutMutation });
-		redirect(ctx, "/user/login");
 		await apolloClient.resetStore();
-	} catch {
-		console.log("error while logging out");
+		redirect(ctx, "/user/login");
+	} catch (err) {
+		console.log("error while logging out", err);
+	} finally {
+		return { props: {} };
 	}
-	return { props: {} };
 };
 
-export default LogoutPage;
+export default withApollo(LogoutPage);

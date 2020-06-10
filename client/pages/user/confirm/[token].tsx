@@ -4,8 +4,9 @@ import { confirmUserMutation } from "../../../graphql/user/mutations/confirmUser
 import { ConfirmUserMutation, ConfirmUserMutationVariables } from "../../../generated/apolloComponents";
 import Layout from "../../../components/Layout";
 import redirect from "../../../lib/redirect";
+import { withApollo } from "../../../lib/withApollo";
 
-export default function ConfirmPage(): ReactElement {
+function ConfirmPage(): ReactElement {
 	return (
 		<Layout title="Confirm Account">
 			<h1>Cannot confirm user account, invalid token </h1>
@@ -28,3 +29,5 @@ ConfirmPage.getInitialProps = async ({ apolloClient, query: { token }, ...ctx }:
 		return { props: {} };
 	}
 };
+
+export default withApollo(ConfirmPage);
