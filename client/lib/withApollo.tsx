@@ -4,7 +4,6 @@ import { ApolloClient } from "apollo-client";
 import { NormalizedCacheObject } from "apollo-cache-inmemory";
 import initApollo from "./initApollo";
 import cookie from "cookie";
-import { isBrowser } from "./isBrowser";
 import { helloQuery } from "../graphql/user/queries/hello";
 import redirect from "./redirect";
 import { DefaultContext } from "../interfaces";
