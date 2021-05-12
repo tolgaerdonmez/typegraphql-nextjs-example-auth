@@ -10,7 +10,7 @@
     "express-session": "^1.17.1",
     "graphql": "^15.0.0",
     "ioredis": "^4.17.3",
-    "nodemailer": "^6.4.8",
+    "nodemailer": "^6.4.16",
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.0.0-rc.2",
